@@ -1,155 +1,148 @@
-# ⚔️ Mini RPG — Isekai v7
+# ⚔️ Mini RPG — Isekai v8.2
 
-> **RPG petualangan berbasis browser (HTML5 Canvas + JavaScript)** dengan sistem Isekai lengkap: crafting, gathering, dungeon, tower, auto-battle, bank, dan 7-tier currency.
+> **RPG petualangan berbasis browser** (HTML5 Canvas + Vanilla JavaScript) dengan sistem Isekai lengkap: 1000 monster, 5000 item, 60 class, dungeon, tower, crafting, gathering, bank, dan 7-tier currency.
 
-![Version](https://img.shields.io/badge/version-7.0.0-blue?style=for-the-badge)
+![Version](https://img.shields.io/badge/version-8.2.0-blue?style=for-the-badge)
 ![License](https://img.shields.io/badge/license-MIT-green?style=for-the-badge)
 ![Platform](https://img.shields.io/badge/platform-Web%20%7C%20Mobile-orange?style=for-the-badge)
 ![Engine](https://img.shields.io/badge/engine-Vanilla%20JS%20%2B%20Canvas-yellow?style=for-the-badge)
-![Size](https://img.shields.io/badge/size-%3C%20250KB-purple?style=for-the-badge)
 ![Dependencies](https://img.shields.io/badge/dependencies-0-brightgreen?style=for-the-badge)
+![Size](https://img.shields.io/badge/size-~250KB-blueviolet?style=for-the-badge)
 
 ---
 
-## 📑 Daftar Isi
+## 📖 Daftar Isi
 
-- [Tentang Game](#-tentang-game)
-- [Fitur Unggulan](#-fitur-unggulan)
-- [Persyaratan Sistem](#-persyaratan-sistem)
-- [Instalasi & Menjalankan](#-instalasi--menjalankan)
+- [Deskripsi](#-deskripsi)
+- [Fitur Utama](#-fitur-utama)
+- [Cara Menjalankan](#-cara-menjalankan)
+- [Cara Update ke GitHub](#-cara-update-ke-github)
+- [Cara Buat APK](#-cara-buat-apk)
 - [Kontrol](#-kontrol)
 - [Panduan Bermain](#-panduan-bermain)
 - [Sistem Game](#-sistem-game)
 - [Database Game](#-database-game)
-- [Progression Guide](#-progression-guide)
-- [Build & Class Guide](#-build--class-guide)
-- [Crafting Recipes](#-crafting-recipes)
-- [Raid Strategy](#-raid-strategy)
-- [Auto-Battle](#-auto-battle)
-- [Save System](#-save-system)
 - [Struktur File](#-struktur-file)
-- [Arsitektur Kode](#-arsitektur-kode)
-- [Kustomisasi & Modding](#-kustomisasi--modding)
+- [Kustomisasi](#-kustomisasi)
 - [Troubleshooting](#-troubleshooting)
 - [FAQ](#-faq)
-- [Kompatibilitas](#-kompatibilitas)
-- [Changelog](#-changelog)
-- [Roadmap](#-roadmap)
-- [Kontribusi](#-kontribusi)
 - [Lisensi](#-lisensi)
-- [Kredit](#-kredit)
 
 ---
 
-## 🎮 Tentang Game
+## 📖 Deskripsi
 
-**Mini RPG — Isekai** adalah game RPG turn-based yang dapat dimainkan **langsung di browser** tanpa instalasi. Pemain terlempar ke dunia Isekai dan memulai perjalanan sebagai petualang dengan **race** dan **class** yang dipilih secara permanen.
+**Mini RPG — Isekai** adalah game RPG turn-based yang dapat dimainkan **langsung di browser** tanpa instalasi, tanpa server, dan tanpa dependency eksternal. Seluruh game terdiri dari **satu file HTML** (`index.html`) yang self-contained.
 
-Dunia ini memiliki **8 benua**, **37 lokasi**, **1000 monster unik**, dan **5000 item** — semuanya di-generate secara prosedural untuk pengalaman yang kaya tanpa file aset eksternal.
+Pemain memulai sebagai petualang yang terlempar ke dunia Isekai, memilih **race** dan **class** secara permanen, lalu menjelajahi **37 lokasi** di **8 benua** untuk:
 
-### Filosofi Desain
-- ✅ **Zero-dependency** — 1 file HTML, tanpa library
-- ✅ **Mobile-first** — Kontrol touch-friendly dengan D-Pad virtual
-- ✅ **Offline-ready** — Semua gameplay offline via localStorage
-- ✅ **Procedural** — Monster & item digenerate, bukan hardcoded
-- ✅ **Fair progression** — Record-based, no infinite scaling exploit
+- ⚔️ Bertarung melawan **1000 monster** unik
+- 🎒 Mengumpulkan **5000 item** berbeda
+- 🔨 Menempa equipment, membuat potion, memasak makanan
+- 🏰 Menantang **Dungeon** (finite) dan **Tower** (infinite)
+- 🌳 Mengembangkan karakter melalui **60 class** dan **jalur evolusi**
 
----
-
-## ✨ Fitur Unggulan
-
-### 🌍 Eksplorasi Dunia
-
-| Fitur | Detail |
-|-------|--------|
-| **8 Benua** | Asteria, Valthera, Kaiserheim, Dravern, Noctis, Elysion, Ancient, Worldroot |
-| **37 Lokasi** | City, Village, Wild, Boss area |
-| **15 Biome** | Forest, Mountain, Volcano, Ice, Desert, Swamp, Coast, Ruins, Shadow, Sky, Aether, Void |
-| **Day/Night Cycle** | 1 siklus penuh = 2 jam real-time |
-| **World Map** | Peta interaktif dengan continent switch |
-| **Weather Effects** | Night overlay, sunset/sunrise tinting |
-
-### ⚔️ Combat System
-
-| Fitur | Detail |
-|-------|--------|
-| **Turn-based Battle** | Attack / Skill / Item / Flee |
-| **Auto-Battle** | Farming otomatis dengan AI heuristik |
-| **Elemental System** | Fire, Ice, Holy, Dark, Poison, Wind, Earth, Arcane, Void |
-| **Status Effects** | Poison, Stun, Freeze, Buff, Dodge |
-| **Critical & Dodge** | Stat-based accuracy & evasion |
-| **Enrage Mechanic** | Boss jadi lebih kuat saat HP < 30% |
-| **Regeneration** | Beberapa monster regen HP per turn |
-
-### 🎭 Karakter & Class
-
-| Fitur | Jumlah |
-|-------|--------|
-| **Races** | 7 (Human, Nekomata, Elf, Dwarf, Draconid, Fairy, Beastkin) |
-| **Base Classes** | 20 |
-| **Evolution Classes** | 40 |
-| **Second Classes** | 7 |
-| **Skills** | 9 template, upgrade tanpa batas |
-| **Stat Points** | STR, VIT, AGI, INT, WIS |
-
-### 💰 Ekonomi
-- **7 Tier Currency**: Bronze → Divine
-- **Bank System**: Simpan uang aman dari death penalty
-- **Merchant**: Beli & jual di setiap kota
-- **Crafting**: Forge, Alchemy, Cook
-- **Gathering**: Menambang, menebang, memetik
-
-### 🏰 Endgame Content
-- **Dungeon**: 5-15 lantai, boss di akhir
-- **Tower**: Infinite floors
-- **Record System**: Best floor tracking
-- **Elite & Boss**: Variasi difficulty
+**Genre:** Action RPG / JRPG-inspired / Isekai  
+**Target Platform:** Desktop & Mobile Browser  
+**Bahasa:** Indonesia  
+**Storage:** localStorage (offline-ready)
 
 ---
 
-## 💻 Persyaratan Sistem
+## ✨ Fitur Utama
 
-### Minimum
+### 🌍 Dunia & Eksplorasi
+- **37 lokasi** tersebar di **8 benua** besar (Asteria, Valthera, Kaiserheim, Dravern, Noctis, Elysion, Ancient, Worldroot)
+- **15 biome** berbeda: forest, mountain, volcano, ice, desert, swamp, ruins, sky, aether, void
+- **Peta dunia interaktif** dengan navigasi antar benua
+- **Sistem siang-malam** — 1 siklus penuh = 2 jam real-time
+- **Efek visual dinamis** — night overlay, sunset, sunrise tinting, ambient particles
 
-| Komponen | Requirement |
-|----------|-------------|
-| **OS** | Windows 7+, macOS 10.12+, Linux, Android 5+, iOS 10+ |
-| **Browser** | Chrome 61+, Firefox 60+, Safari 11+, Edge 79+ |
-| **RAM** | 512 MB |
-| **Storage** | 5 MB (termasuk cache browser) |
-| **Display** | 480×360 minimum |
-| **Input** | Keyboard/Mouse atau Touch screen |
+### ⚔️ Sistem Combat
+- **Turn-based battle** dengan UI bersih dan responsif
+- **4 aksi utama**: Attack, Skill, Item, Flee
+- **Sistem elemental** — fire, ice, holy, dark, poison, wind, earth, arcane, physical, void
+- **Weakness & Resistance** — damage ×1.4 (weak) atau ×0.7 (resist)
+- **Status effect** — poison (DoT), stun, freeze, buff ATK, buff dodge
+- **Critical hit** — chance berdasarkan SPD, damage ×1.6
+- **Dodge & accuracy** system
+- **Enrage** mechanic untuk boss (ATK ×1.4 saat HP < 30%)
+- **Regen** mechanic untuk boss tertentu
 
-### Recommended
+### 🎭 Karakter & Progression
+- **7 Race** dengan bonus unik
+- **20 Base Class** + **40 Evolusi Class** = **60 class total**
+- **Jalur evolusi bercabang** — setiap base class bisa evo ke 2-3 class berbeda
+- **7 Second Class** permanen
+- **Stat allocation**: STR, VIT, AGI, INT, WIS (+3 poin per level)
+- **Skill upgrade** tanpa batas level
+- **Guild Rank** — E, D, C, B, A, S, SS, SSS, SSS+
+- **Power Rank** — F, E, D, C, B, A, S, SS, SSS
 
-| Komponen | Requirement |
-|----------|-------------|
-| **Browser** | Chrome 100+, Firefox 100+, Safari 15+ |
-| **RAM** | 1 GB+ |
-| **Display** | 720p+ |
-| **Audio** | Speaker/Headphone |
+### 💰 Sistem Ekonomi
+- **7 Tier mata uang** — Bronze → Silver → Gold → Platinum → Mithril → Adamantite → Divine
+- **Bank** — simpan uang aman dari death penalty
+- **Merchant** — beli & jual item di setiap kota
+- **8 preset jumlah** transfer bank
+- **Auto-format currency** (tampil 3 tier tertinggi)
 
-### Tidak Didukung
-- ❌ Internet Explorer (semua versi)
-- ❌ Browser tanpa ES6 Modules support
-- ❌ Browser tanpa Canvas 2D context
+### 🔨 Gathering & Crafting
+- **Menambang** 🪨 — dapat ore (Copper → Starmetal)
+- **Menebang** 🌲 — dapat kayu (Oak → Worldtree)
+- **Memetik** 🌸 — dapat herba
+- **Respawn 30 detik** untuk semua tile
+- **3 kategori crafting**:
+  - **FORGE** — 800 resep weapon & armor
+  - **ALCHEMY** — 400 resep potion
+  - **COOK** — 200 resep makanan
+- **NPC specialist**: Blacksmith 🔨, Alchemist ⚗️, Cook 🍳
+
+### 🏰 Raid: Dungeon & Tower
+- **Dungeon** — 5-15 lantai (skala level), boss di akhir, reward besar
+- **Tower** — Infinite floors, tantangan tak terbatas
+- **Monster TANPA scaling** — level asli dari database
+- **Elite monster** setiap 5 lantai (⭐)
+- **Boss dungeon** — HP ×3, ATK ×1.2, DEF ×1.3, EXP ×2.5
+- **Record system** — hanya mencatat lantai TERTINGGI
+- **Heal antar lantai** — 35% HP & MP
+
+### 📊 Records & Stats
+- **Total kills** — jumlah monster dibunuh
+- **Dungeon Best** — floor tertinggi Dungeon
+- **Tower Best** — floor tertinggi Tower
+- **Deaths** — total kematian
+- **Achievements** — reward untuk milestone tertentu
+- **Guild Rank** — berdasarkan power
+
+### 💾 Save System
+- **localStorage** — save otomatis setiap event penting
+- **Multi-akun** — setiap username punya save terpisah
+- **Login / Register** — terpisah dengan validasi
+- **Delete save** — untuk reset karakter
+
+### 📱 Mobile-Friendly
+- **On-screen D-Pad** — navigasi 4 arah
+- **Action buttons** — A, B, Menu, Map, Status
+- **Responsive layout** — adaptif untuk layar kecil
+- **Touch-optimized** — no zoom, no tap highlight, no scroll
+- **Safe-area support** — iPhone notch & Android cutout
 
 ---
 
-## 🚀 Instalasi & Menjalankan
+## 🚀 Cara Menjalankan
 
-### 📦 Metode 1: Buka Langsung (Paling Mudah)
+### Metode 1: Langsung Buka (Paling Cepat)
 
-1. **Download** file `index.html`
+1. Simpan file `index.html` di komputer
 2. **Double-click** file tersebut
-3. Game langsung terbuka di browser default
+3. Game akan terbuka di browser default
 
-> ⚠️ **Catatan**: Beberapa browser memblokir `localStorage` pada `file://` protocol. Jika save tidak bekerja, gunakan Metode 2.
+> ⚠️ Beberapa browser memblokir `localStorage` pada `file://` protocol. Jika save tidak bekerja, gunakan Metode 2.
 
-### 🌐 Metode 2: Local Server (Direkomendasikan)
+### Metode 2: Local Server (Direkomendasikan)
 
 **Python 3:**
 ```bash
-cd /path/to/mini-rpg
+cd folder/berisi/index.html
 python -m http.server 8000
-# Buka: http://localhost:8000
+# Buka http://localhost:8000
